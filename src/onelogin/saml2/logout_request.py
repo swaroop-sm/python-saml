@@ -333,8 +333,8 @@ class OneLogin_Saml2_Logout_Request(object):
                     )
 
                 security = self.__settings.get_security_data()
-
-                current_url = OneLogin_Saml2_Utils.get_self_url_no_query(request_data)
+                # current_url = OneLogin_Saml2_Utils.get_self_url_no_query(request_data)
+                current_url = dom.get('Destination', None)
 
                 # Check NotOnOrAfter
                 if dom.get('NotOnOrAfter', None):

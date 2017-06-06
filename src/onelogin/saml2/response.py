@@ -131,7 +131,8 @@ class OneLogin_Saml2_Response(object):
                         )
 
                 security = self.__settings.get_security_data()
-                current_url = OneLogin_Saml2_Utils.get_self_url_no_query(request_data)
+                # current_url = OneLogin_Saml2_Utils.get_self_url_no_query(request_data)
+                current_url = self.document.get('Destination', None)
 
                 # Check if the InResponseTo of the Response matchs the ID of the AuthNRequest (requestId) if provided
                 in_response_to = self.document.get('InResponseTo', None)
